@@ -21,4 +21,18 @@ this time around. It is easily integrated with [Github Pages](http://pages.githu
 and there is a ton of [documentation](http://jekyllrb.com/docs/home/) available on the web.
 
 ## Setting up Jekyll
-This could not be an easier process. 
+There could not have been an easier process than the one that I chose.
+I used [jekyllbootstrap's](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+guide to set up my blog on Github Pages. It only took me about **10 minutes**.
+Once it was set up on Github, I edited the config file to include my information.
+Anytime I want to add a post, all I need to do is `rake post title="titlename"`
+and then add, commit and push and it's on my github page, ~10 minutes later.
+
+## Looking forward
+There's still a *TON* that I need to learn and things that I want to do to make
+this blog something that I'm proud of. Some of which are:
+
+1. Learn YAML.
+2. Set up analytics (Mixpanel, GA, etc).
+3. Edit the theme / find a better one.
+4. Write a blog post about gSchool (currently in my 4th week).
