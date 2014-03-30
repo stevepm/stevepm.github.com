@@ -48,9 +48,13 @@
 
             <div class="nav-collapse">
               <ul class="nav">
-                {% assign pages_list = site.pages %}
-                {% assign group = 'navigation' %}
-                {% include JB/pages_list %}
+                <!--{% assign pages_list = site.pages %}-->
+                <!--{% assign group = 'navigation' %}-->
+                <!--{% include JB/pages_list %}-->
+                {% for page in site.pages_list %}
+                <!--&nbsp;&nbsp;&nbsp;-->
+                <li><a href="{{ page[1]  }}">{{ page[0] }}</a></li>
+                {% endfor %}
               </ul>
               <ul class="nav pull-right social visible-desktop">
                 <li class="divider-vertical"></li>
