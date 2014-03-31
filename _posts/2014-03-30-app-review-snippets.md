@@ -42,11 +42,11 @@ If you're interested in my Sinatra snippets, here they are:
 ### Config.ru
 ---
 {% highlight ruby linenos %}
-require './myapp'
+require './app'
 
 run App
 {% endhighlight %}
-### myapp.rb
+### app.rb
 ---
 {% highlight ruby linenos %}
 require 'sinatra/base'
@@ -64,12 +64,12 @@ ENV['RACK_ENV'] = 'test'
 require 'spec_helper'
 require 'capybara/rspec'
 require_relative '../myapp'
-Capybara.app = My_app_name
+Capybara.app = App
 {% endhighlight %}
 ### Gems in Gemfile
 ---
 {% highlight ruby linenos %}
-groups :development do
+group :development do
     gem 'rspec', '~> 2.14.1'
     gem 'capybara', '~> 2.2.1'
     gem 'launchy', '~> 2.4.2'
