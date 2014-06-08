@@ -100,7 +100,8 @@ So let's make some edits and then I'll explain it after:
     });
   });
 </script>
-
+{% endhighlight %}
+{% highlight erb linenos %}
 <% if logged_in? %>
   <% if !(current_user.voted_up_on? gem) %>
     <% button = 'btn-default' %>
