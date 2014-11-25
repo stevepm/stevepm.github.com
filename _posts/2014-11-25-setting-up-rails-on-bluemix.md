@@ -22,20 +22,21 @@ I will go step by step, please leave a comment below if anything was missing or 
 * Run `bundle` in your terminal
 * Run `touch manifest.yml` in your terminal to create the manifest file in your root directory, this will store your Bluemix App config
 * Log in to [Bluemix](http://bluemix.net)
-* Click **Create an app**
-![create an app](http://i.imgur.com/ZgXYC7T.png)
-* Choose **Ruby on Rails** runtime towards the bottom
-![choose ruby on rails](http://i.imgur.com/2u3ZudM.png)
+* Click **Create an app** <br/>
+![create an app](http://i.imgur.com/ZgXYC7T.png)<br/>
+* Choose **Ruby on Rails** runtime towards the bottom<br/>
+![choose ruby on rails](http://i.imgur.com/2u3ZudM.png)<br/>
 * Choose your app name and route and then click **create**
-* Click **add a service**
-![add a service](http://i.imgur.com/2SgTk3b.png)
-* Choose **ElephantSQL**
-![elephantsql](http://i.imgur.com/fiYLPZr.png)
-* Rename the service name to `elephant` and click **create**
-![rename service](http://i.imgur.com/5uFYz9a.png)
+* Click **add a service**<br/>
+![add a service](http://i.imgur.com/2SgTk3b.png)<br/>
+* Choose **ElephantSQL**<br/>
+![elephantsql](http://i.imgur.com/fiYLPZr.png)<br/>
+* Rename the service name to `elephant` and click **create**<br/>
+![rename service](http://i.imgur.com/5uFYz9a.png)<br/>
 * Update your **manifest.yml** to look similar to this:
 
-```---
+{% highlight ruby linenos %}
+---
 applications:
 - name: APP_NAME
   memory: 512M
@@ -45,11 +46,11 @@ applications:
   path: .
   services:
   - elephant
-```
+{% endhighlight %}
 * In your console run `rake db:create db:migrate` to create your dbs and the schema
 * Open **config/database.yml** and change your Production settings to look similar to this:
 
-```
+{% highlight ruby linenos %}
 production:
 <% if ENV['VCAP_SERVICES'] %>
 <% services = JSON.parse(ENV['VCAP_SERVICES'])
@@ -60,7 +61,7 @@ production:
   <<: *default
   database: db/production.sqlite3
 <% end %>
-```
+{% endhighlight %}
 * You should now be ready to push to Bluemix
 * Run `cf login`
 * The API endpoint it's asking for is: **https://api.ng.bluemix.net**
