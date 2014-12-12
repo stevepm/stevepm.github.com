@@ -16,11 +16,13 @@ I will go step by step, please leave a comment below if anything was missing or 
 #Bluemix Instructions
 
 * Install [cloudfoundry cli](https://github.com/cloudfoundry/cli)
-* Type into your terminal: `rails new MY_APP_NAME -T`
+* Once finished, type `cf -v` in your terminal, and you should see something like this: "cf version 6.6.2-0c953cf-2014-10-17T18:10:36+00:00"
+* Note: if you don't see anything, you might need to open a new terminal tab
+* Type into your terminal: `rails new MY_APP_NAME -d=postgresql`
 * `cd` into your new app folder
 * Add `rails_12factor` gem to gemfile for logging purposes
-* Run `bundle` in your terminal
-* Run `touch manifest.yml` in your terminal to create the manifest file in your root directory, this will store your Bluemix App config
+* Run `bundle` in your terminal to install the gem
+* Create a new file `manifest.yml` in your project root directory, this will store your Bluemix App config
 * Log in to [Bluemix](http://bluemix.net)
 * Click **Create an app** <br/>
 ![create an app](http://i.imgur.com/ZgXYC7T.png)<br/>
@@ -41,7 +43,7 @@ applications:
 - name: APP_NAME
   memory: 512M
   instances: 1
-  host: HOST_NAME (usually same as APP_NAME)
+  host: HOST_NAME
   domain: mybluemix.net
   path: .
   services:
