@@ -54,20 +54,20 @@ $ `cd learn-angular`<br/>
 Open up `Gemfile` and do the following:<br/>
 **Remove:**<br/>
 
-~~~ruby
+{% highlight ruby linenos %}
 gem 'turbolinks'
-~~~
+{% endhighlight %}
 
 **Add:**<br/>
 
-~~~ruby
+{% highlight ruby linenos %}
 group :test, :development do
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'selenium-webdriver'
 end
-~~~
+{% endhighlight %}
 
 And then:<br/>
 $ `bundle`
@@ -81,19 +81,19 @@ We're going to use a gem *bower-rails* to set up bower in our application. It pr
 
 Go back to your `Gemfile` and **add:**<br/>
 
-~~~ruby
+{% highlight ruby linenos %}
 gem 'bower-rails'
-~~~
+{% endhighlight %}
 $ `bundle`
 
 Now we need to install Bower so that we can add Angular and Bootstrap<br/>
 $ `touch Bowerfile` <br/>
 Open `Bowerfile` and **add:**<br/>
 
-~~~ruby
+{% highlight ruby linenos %}
 asset 'angular'
 asset 'bootstrap-sass-official'
-~~~
+{% endhighlight %}
 
 $ `rake bower:install` <br/>
 
@@ -104,21 +104,21 @@ We're going to add the bower folders to the assets path. We're also going to mak
 
 Inside of:
 
-~~~ruby
+{% highlight ruby linenos %}
 class Application < Rails::Application
 
 
 end
-~~~
+{% endhighlight %}
 
 add
 
-~~~ruby
+{% highlight ruby linenos %}
 config.assets.paths << Rails.root.join("vendor", "assets", "bower_components")
 config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "bootstrap-sass-official", "assets", "fonts")
 
 config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
-~~~
+{% endhighlight %}
 
 We now need to load these dependencies in our `app/assets/javascripts/application.js` and `app/assets/css/application.css.scss` files.
 
@@ -126,22 +126,22 @@ Open up `application.js`.
 
 **remove:**<br/>
 
-~~~ruby
+{% highlight javascript linenos %}
 //= require turbolinks
-~~~
+{% endhighlight %}
 
 **add:**<br/>
 
-~~~ruby
+{% highlight javascript linenos %}
 //= require angular/angular
-~~~
+{% endhighlight %}
 
 Open `application.css.scss` and **add:**
 
-~~~ruby
+{% highlight css linenos %}
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
-~~~
+{% endhighlight %}
 
 --
 ### Making sure all of the pieces are working
@@ -150,33 +150,33 @@ Let's make sure the app is working and configured properly.
 
 In `config/routes.rb`, **add**:
 
-~~~ruby
+{% highlight ruby linenos %}
 root 'home#index'
-~~~
+{% endhighlight %}
 
 Next, create the `HomeController` in `app/controllers/home_controller.rb` and add the following code to it:
 
-~~~ruby
+{% highlight ruby linenos %}
 class HomeController < ApplicationController
   def index
   end
 end
-~~~
+{% endhighlight %}
 
 Next, we're going to create our Angular app. Create `app/assets/javascripts/angular/app.js` and add the following code to it:
 
-~~~javascript
+{% highlight javascript linenos %}
 app = angular.module('app', []);
-~~~
+{% endhighlight %}
 
 Create the view, in `app/views/home/index.html` and place in the following:
 
-~~~html
+{% highlight html linenos %}
 <h1 ng-if="name">Hello, {{name}}</h1>
 <form>
 	<input type="text" ng-class="name">
 </form>
-~~~
+{% endhighlight %}
 
 Run the server:<br/>
 $ `rails s`
