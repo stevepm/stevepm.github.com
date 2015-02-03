@@ -54,13 +54,13 @@ $ `cd learn-angular`<br/>
 Open up `Gemfile` and do the following:<br/>
 **Remove:**<br/>
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 gem 'turbolinks'
 {% endhighlight %}
 
 **Add:**<br/>
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 group :test, :development do
 	gem 'rspec-rails'
 	gem 'capybara'
@@ -81,7 +81,7 @@ We're going to use a gem *bower-rails* to set up bower in our application. It pr
 
 Go back to your `Gemfile` and **add:**<br/>
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 gem 'bower-rails'
 {% endhighlight %}
 $ `bundle`
@@ -90,7 +90,7 @@ Now we need to install Bower so that we can add Angular and Bootstrap<br/>
 $ `touch Bowerfile` <br/>
 Open `Bowerfile` and **add:**<br/>
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 asset 'angular'
 asset 'bootstrap-sass-official'
 {% endhighlight %}
@@ -104,7 +104,7 @@ We're going to add the bower folders to the assets path. We're also going to mak
 
 Inside of:
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 class Application < Rails::Application
 
 
@@ -113,7 +113,7 @@ end
 
 add
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 config.assets.paths << Rails.root.join("vendor", "assets", "bower_components")
 config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "bootstrap-sass-official", "assets", "fonts")
 
@@ -126,19 +126,19 @@ Open up `application.js`.
 
 **remove:**<br/>
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 //= require turbolinks
 {% endhighlight %}
 
 **add:**<br/>
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 //= require angular/angular
 {% endhighlight %}
 
 Open `application.css.scss` and **add:**
 
-{% highlight css linenos %}
+{% highlight css %}
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 {% endhighlight %}
@@ -150,13 +150,13 @@ Let's make sure the app is working and configured properly.
 
 In `config/routes.rb`, **add**:
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 root 'home#index'
 {% endhighlight %}
 
 Next, create the `HomeController` in `app/controllers/home_controller.rb` and add the following code to it:
 
-{% highlight ruby linenos %}
+{% highlight ruby  %}
 class HomeController < ApplicationController
   def index
   end
@@ -165,13 +165,13 @@ end
 
 Next, we're going to create our Angular app. Create `app/assets/javascripts/angular/app.js` and add the following code to it:
 
-{% highlight javascript linenos %}
+{% highlight javascript  %}
 app = angular.module('app', []);
 {% endhighlight %}
 
 Create the view, in `app/views/home/index.html` and place in the following:
 
-{% highlight html linenos %}
+{% highlight html  %}
 <h1 ng-if="name">Hello, {{name}}</h1>
 <form>
 	<input type="text" ng-class="name">
