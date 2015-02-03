@@ -28,7 +28,7 @@ Hello there! Today we're going to set up a Rails application that uses Angular t
 
 **Twitter Bootstrap** - The css styling framework
 
---
+---
 
 ## What we are building
 
@@ -47,7 +47,7 @@ We will build a very simple CRUD application that will demonstrate:
 $ `rails new learn-angular -d=postgresql -T`<br/>
 $ `cd learn-angular`<br/>
 
---
+---
 ### Add testing dependencies
 Open up `Gemfile` and do the following:<br/>
 **Remove:**<br/>
@@ -73,7 +73,7 @@ $ `bundle`
 ### Create your DBs
 $ `rake db:create db:migrate`<br/>
 
---
+---
 ### Setting up Bower for front-end package management
 We're going to use a gem *bower-rails* to set up bower in our application. It provides a very nice way to manage dependencies that is very similar to a `Gemfile`.
 
@@ -141,7 +141,7 @@ Open `application.css.scss` and **add:**
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 {% endhighlight %}
 
---
+---
 ### Making sure all of the pieces are working
 
 Let's make sure the app is working and configured properly.
@@ -181,6 +181,6 @@ $ `rails s`
 
 Visit `localhost:3000` and voila! Angular two-way binding should be working now.
 
---
+---
 
 That's it for part 1. Next, we'll work on test driving the application to CRUD some objects.
