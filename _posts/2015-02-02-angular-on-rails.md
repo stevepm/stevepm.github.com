@@ -28,8 +28,6 @@ Hello there! Today we're going to set up a Rails application that uses Angular t
 
 **Twitter Bootstrap** - The css styling framework
 
-**Heroku** - The PaaS for deployment
-
 --
 
 ## What we are building
